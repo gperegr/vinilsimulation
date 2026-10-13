@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Simulador de Física do Vinil 2D</title>
+  <!-- General Sans font from Fontshare -->
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="top-bar">
+      <div class="title-area">
+        <h1>Simulador de Vinil <span>2D</span></h1>
+        <p>Mecânica de Transdução &bullet; Modulação 45/45 &bullet; EMA Dinâmico</p>
+      </div>
+      <div class="header-actions">
+        <label for="audio-upload" class="btn-upload">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Carregar Ficheiro
+        </label>
+        <input type="file" id="audio-upload" accept="audio/*">
+        <button id="btn-example" class="primary-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          Áudio Sintético
+        </button>
+      </div>
+    </div>
+
+    <div class="controls-bar">
+      <button id="btn-play" class="btn-play">
+        <svg id="play-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span id="play-text">Play</span>
+      </button>
+
+      <div class="timeline-container">
+        <span id="time-current">00 : 00</span>
+        <input type="range" id="timeline" min="0" max="100" value="0">
+        <span id="time-total">00 : 00</span>
+      </div>
+
+      <div class="mode-toggle">
+        <button id="btn-mono">MONO</button>
+        <button id="btn-stereo" class="active-stereo">ESTÉREO</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="panel">
+      <div class="panel-label">1. VISTA DE FRENTE &middot; CORTE 45/45</div>
+      <canvas id="cvs-front"></canvas>
+    </div>
+    <div class="panel">
+      <div class="panel-label">2. VISTA ISOMÉTRICA 3D &middot; TOCA-DISCOS &amp; SULCO 3D</div>
+      <canvas id="cvs-top"></canvas>
+    </div>
+    <div class="panel">
+      <div class="panel-label">3. VISTA DE PERFIL &middot; TRANSDUÇÃO MM</div>
+      <canvas id="cvs-profile"></canvas>
+    </div>
+    <div class="panel">
+      <div class="panel-label">4. OSCILOSCÓPIO &middot; DUAL-TRACE</div>
+      <canvas id="cvs-scope"></canvas>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

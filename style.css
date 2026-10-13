@@ -1,0 +1,352 @@
+/* ==========================================================================
+   Design System Inspirado em General Sans, Terracota (#DE6644) e Charcoal (#201E1D)
+   ========================================================================== */
+
+:root {
+  /* Cores da Identidade Visual */
+  --color-primary: #de6644;        /* Terracotta / Coral Orange */
+  --color-primary-hover: #cb5938;  
+  --color-primary-light: rgba(222, 102, 68, 0.12);
+  --color-charcoal: #201e1d;       /* Deep warm dark */
+  --color-charcoal-hover: #32302e;
+  --color-white: #ffffff;
+  
+  /* Superfícies & Neutros */
+  --bg-app: #f0f1f4;               /* Light warm gray (fundo da app) */
+  --bg-card: #ffffff;              /* Painéis e cards brancos */
+  --bg-control: #f5f6f8;           /* Fundo para controles e pills */
+  --bg-control-hover: #eaecee;
+  
+  --border-light: rgba(32, 30, 29, 0.08);
+  --border-subtle: #e5e7eb;
+  
+  --text-main: #201e1d;
+  --text-muted: #8a8a93;
+  --text-dim: #b0b2ba;
+
+  /* Fontes e Raios */
+  --font-main: 'General Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --radius-panel: 22px;
+  --radius-pill: 9999px;
+  --radius-button: 9999px;
+  
+  /* Sombras Suaves */
+  --shadow-card: 0 4px 20px -2px rgba(32, 30, 29, 0.05), 0 2px 6px -1px rgba(32, 30, 29, 0.02);
+  --shadow-floating: 0 8px 30px rgba(32, 30, 29, 0.08);
+  --shadow-btn-primary: 0 4px 14px rgba(222, 102, 68, 0.28);
+}
+
+/* Reset e Base 100vh */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Header & Controles (Estilo Apple / Teenage Engineering / Modern Audio App)
+   ========================================================================== */
+
+header {
+  flex-shrink: 0;
+  background: var(--bg-card);
+  margin: 12px 14px 4px 14px;
+  padding: 12px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 20;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-area h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title-area h1 span {
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+}
+
+.title-area p {
+  margin: 2px 0 0 0;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Barra de Controles Inferior */
+.controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-control);
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   Botões e Ações (Formas em Pílula / Squircles)
+   ========================================================================== */
+
+button, .btn-upload {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  padding: 7px 16px;
+  border-radius: var(--radius-button);
+  font-family: var(--font-main);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button:hover, .btn-upload:hover {
+  background-color: var(--bg-control-hover);
+  border-color: rgba(32, 30, 29, 0.18);
+  transform: translateY(-1px);
+}
+
+button:active, .btn-upload:active {
+  transform: translateY(0);
+}
+
+/* Botão Play em Destaque Terracota */
+.btn-play {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  border: 1px solid var(--color-primary) !important;
+  box-shadow: var(--shadow-btn-primary);
+  min-width: 88px;
+  justify-content: center;
+}
+
+.btn-play:hover {
+  background-color: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
+}
+
+/* Botão Primário (Charcoal) */
+.primary-btn {
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+  border-color: var(--color-charcoal);
+}
+
+.primary-btn:hover {
+  background-color: var(--color-charcoal-hover);
+  border-color: var(--color-charcoal-hover);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* ==========================================================================
+   Timeline / Seeker (Inspirado no Timer & Waveform da Imagem 1)
+   ========================================================================== */
+
+.timeline-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-light);
+}
+
+#time-current, #time-total {
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+}
+
+#time-total {
+  color: var(--text-muted);
+}
+
+input[type="range"] {
+  flex: 1;
+  height: 5px;
+  background: #e2e4e8;
+  border-radius: var(--radius-pill);
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--color-primary);
+  border: 2px solid var(--color-white);
+  box-shadow: 0 2px 6px rgba(32, 30, 29, 0.2);
+  border-radius: 50%;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+}
+
+/* ==========================================================================
+   Alternador Segmentado Mono / Estéreo
+   ========================================================================== */
+
+.mode-toggle {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+  gap: 2px;
+}
+
+.mode-toggle button {
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.mode-toggle button.active-mono {
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  box-shadow: 0 2px 6px rgba(32, 30, 29, 0.15);
+}
+
+.mode-toggle button.active-stereo {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(222, 102, 68, 0.28);
+}
+
+/* ==========================================================================
+   Grid de Painéis 2x2
+   ========================================================================== */
+
+.grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  padding: 8px 14px 14px 14px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 820px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 280px);
+    overflow-y: auto;
+  }
+  html, body {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
+}
+
+/* Cards dos Painéis */
+.panel {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: block;
+  transition: box-shadow 0.2s ease;
+}
+
+.panel:hover {
+  box-shadow: 0 6px 24px -2px rgba(32, 30, 29, 0.07);
+}
+
+/* Rótulos em Pílula Flutuante Translúcida */
+.panel-label {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(32, 30, 29, 0.08);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-main);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  letter-spacing: 0.4px;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(32, 30, 29, 0.04);
+}
+
+/* Canvas de Alta Resolução */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
